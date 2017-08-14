@@ -1,0 +1,24 @@
+// Definitions for test_gpio module
+/dts-v1/;
+/plugin/;
+
+/ {
+	compatible = "brcm,bcm2708";
+
+	fragment@0 {
+		target = <&i2c1>;
+		__overlay__ {
+			#address-cells = <1>;
+			#size-cells = <0>;
+			clock-frequency = <100000>;
+			status = "okay";
+
+			nunchuk: nunchuk@52 {
+				compatible = "nintendo,nunchuk";
+				reg = <0x52>;
+				status = "okay";
+			};
+		};
+	};
+
+};
